@@ -1,11 +1,13 @@
 <?php
 get_header();
 ?>
-<div id="propos">
-    <h1>
-        <?php bloginfo('name'); ?>
-    </h1>
-
+<div class="content">
+    <p id="propos">
+        <?php _e('Ce que vous souhaiter savoir sur moi se trouve sur cette page.'); ?>
+    </p>
+    <h2 class="proposTitle">
+        <?php _e('Qui suis je ?'); ?>
+    </h2>
     <?php
     $arg = array('post_type' => 'about', 'posts_per_page' => 3);
     $loop = new WP_query($arg);
@@ -14,19 +16,20 @@ get_header();
         while ($loop->have_posts()):
             $loop->the_post();
             ?>
-            <h2>
-                <?php the_title(); ?>
-            </h2>
-            <p>
-                <?php the_content(); ?>
-            </p>
+            <article class="propos">
+                <h2>
+                    <?php the_title(); ?>
+                </h2>
+                <p>
+                    <?php the_content(); ?>
+                </p>
+            </article>
             <?php
         endwhile;
     endif;
     ?>
 
     <section>
-
         <h2>
             <?php _e('Mescompétences') ?>
         </h2>
@@ -60,7 +63,16 @@ get_header();
                 </tr>
             </tbody>
         </table>
-
+    </section>
+    <h2 class="proposTitle">
+        <?php _e('Me contacter'); ?>
+    </h2>
+    <section id="contact">
+        <p>
+            Email : mickael.dusaiwoir@student.hepl.be
+        </p>
+        <a href="facebook.com" title="Se rendre sur ma page facebook" id="fb"></a>
+        <a href="youtube.com" title="Se rendre sur ma chaine youtube" id="yt"></a>
     </section>
 </div>
 <?php

@@ -13,8 +13,8 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" type="text/css" href="<?php bloginfo(stylesheet_url ); ?>" />
-        
+        <!--<link rel="stylesheet" type="text/css" href="<?php //bloginfo(stylesheet_url ); ?>" /> -->
+        <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_directory');?>/css/style.css" />
        <!-- 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">

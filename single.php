@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<section id="content">
+<div class="content">
     <?php
     if (have_posts()):
         while (have_posts()):
@@ -37,7 +37,7 @@ get_header();
             endwhile;
         endif;
         ?>
-</section>
+</div>
     <?php
     get_footer();
     ?>

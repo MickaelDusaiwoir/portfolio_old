@@ -1,7 +1,10 @@
 <?php
 get_header();
 ?>
-<div id="content">
+<div class="content">
+    <p id="home">
+        <?php _e('Bienvenu sur mon portfolio, je vous souhaite une bonne visite.'); ?>
+    </p>
     <section id="bgslide">
         <div id="slider">
             <a href="portfolio">
@@ -19,7 +22,7 @@ get_header();
         </div>
     </section>     
     <section class="info travaux">
-        <h2><?php _e('Mes derniers travaux'); ?></h2>
+        <h2><?php _e('Mes travaux'); ?></h2>
         <div id="tvx">
             <?php
             $arg = array('post_type' => 'works', 'posts_per_page' => 3);
@@ -29,7 +32,7 @@ get_header();
                 while ($loop->have_posts()):
                     $loop->the_post();
                     ?>
-                    <a href="<?php the_permalink(); ?>" title="Aller voir mes travaux"><?php the_post_thumbnail(array(200, 300)); ?></a>
+                    <a href="<?php the_permalink(); ?>" title="Aller voir mes travaux"><?php the_post_thumbnail('medium'); ?></a>
                     <?php
                 endwhile;
             endif;
@@ -38,7 +41,7 @@ get_header();
     </section>
     <section class="info">
         <h2>
-            <?php _e('Derniers Articles du blog'); ?>
+            <?php _e('News'); ?>
         </h2>
         <?php
         $arg1 = array('posts_per_page' => 2,'post_type' => 'blog');
@@ -50,11 +53,9 @@ get_header();
                 ?>
                 <article class="news">
                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    <div class="post_content">
                         <?php the_content(); ?>
-                    </div>
                     <footer>
-                        <h4><?php _e('Publié le'); ?> <?php echo get_the_date(); ?></h4>
+                        <p><?php _e('Publié le'); ?> <?php echo get_the_date(); ?></p>
                         <p>
                             <?php comments_popup_link('Aucun commentaire', '1 commentaire', '% commentaires', 'comments-link', 'Les commentaires sont fermés'); ?>
                         </p>

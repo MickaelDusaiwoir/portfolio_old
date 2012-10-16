@@ -1,7 +1,13 @@
 <?php
 get_header();
 ?>
-<section>
+<div class="content">
+    <p id="blog">
+        <?php _e('Retrouver sur cette page tous ce que je souhaite vous partager'); ?>
+    </p>
+    <h2 id="blogTitle">
+        Blog
+    </h2>
     <?php
     $arg = array('post_type' => 'blog', 'posts_per_page' => 12);
     $loop = new WP_query($arg);
@@ -11,9 +17,7 @@ get_header();
             $loop->the_post();
             ?>
             <article class="blog">
-                <header>
-                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                </header>                
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>               
                 <?php the_content(); ?>
                 <footer>
                     <p>
@@ -28,7 +32,7 @@ get_header();
         endwhile;
     endif;
     ?>
-</section>
+</div>
 <?php
 get_footer();
 ?>
