@@ -3,12 +3,9 @@ get_header();
 ?>
 <section id="content">
     <?php
-    $arg = array('post_type' => 'blog', 'posts_per_page' => 10);
-    $loop = new WP_query($arg);
-
-    if ($loop->have_posts()):
-        while ($loop->have_posts()):
-            $loop->the_post();
+    if (have_posts()):
+        while (have_posts()):
+            the_post();
             ?>
             <article <?php post_class(); ?>>
                 <hgroup>
